@@ -19,13 +19,13 @@
                             <button class="nav-link active" id="pills-food-tab" data-bs-toggle="pill" data-bs-target="#pills-food" type="button" role="tab" aria-controls="pills-food" aria-selected="true">FOOD</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab" aria-controls="pills-drink" aria-selected="false">DRINK</button>
+                            <button class="nav-link rounded-pill" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab" aria-controls="pills-drink" aria-selected="false">DRINK</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-hamburger-tab" data-bs-toggle="pill" data-bs-target="#pills-hamburger" type="button" role="tab" aria-controls="pills-hamburger" aria-selected="false">HAMBURGER</button>
+                            <button class="nav-link rounded-pill" id="pills-hamburger-tab" data-bs-toggle="pill" data-bs-target="#pills-hamburger" type="button" role="tab" aria-controls="pills-hamburger" aria-selected="false">HAMBURGER</button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="pills-checkout-tab" data-bs-toggle="pill" data-bs-target="#pills-checkout" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">CHECK OUT</button>
+                            <li class="nav-item d-none" role="presentation">
+                              <button class="nav-link rounded-pill" id="pills-checkout-tab" data-bs-toggle="pill" data-bs-target="#pills-checkout" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">CHECK OUT</button>
                               </li>
                       </ul>
                     </div>
@@ -151,8 +151,32 @@
                                 </div>
                               </div>
                         </div>
-                        <div class="tab-pane fade show active" id="pills-checkout" role="tabpanel" aria-labelledby="pills-checkout-tab">Check out</div>
+                        <div class="tab-pane fade" id="pills-checkout" role="tabpanel" aria-labelledby="pills-checkout-tab">Check out
+                          <!--Check out-->
+                          <div class="row mb-3">
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Customer's Name</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="rounded-pill form-contro l form-control-lg" id="customername" placeholder="order">
+                            </div>
+                          </div>
 
+                          <div class="row mb-3">
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Telephone's number</label>
+                            <div class="col-sm-8">
+                              <input type="number" class="rounded-pill form-contro form-control-lg" id="telephonenumber" placeholder="phone">
+                            </div>
+                          </div>
+
+                          <!--Amount of order-->
+                          <div class="row  mb-3">
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Total of amount:</label>
+                            <div class="col-sm-8">
+                              <input type="number" step = "0.01" class="rounded-pill form-contro l form-control-lg text-center" id="amount" placeholder="amount" disabled>
+                            </div>
+                          </div>
+
+                        </div>
+                        
                       </div>
                 </div>
                 <div class= "col-sm-4">
@@ -171,7 +195,7 @@
                                 <big>Total Amount: </big><big class = "fw-bold">$ <span id="totalcost" class="card-text" >0.00</span></big>
                               </li>
                               <li>
-                                <button class ="btn btn-primary btn-lg w-100 rounded-pill">CHECK OUT</button>
+                                <button disabled="" id="checkoutbutton" onclick= "gotocheckouttab()" class ="btn btn-primary btn-lg w-100 rounded-pill">CHECK OUT</button>
                               </li>
                             </ul>
                             </li>
@@ -187,6 +211,7 @@
             const orderitemarray = [];
             const orderarray= [];
             const orderimgarray = [];
+            const orderitemidarray = [];
             let id = 0;
             function order(itemname, itemprice, itemimage){
                 ///add into an array
@@ -194,6 +219,7 @@
                 orderidarray.push(id);
                 orderitemarray.push(itemname);
                 orderpricearray.push(itemprice);
+                ///orderitemidarray.push(itemid);
                 orderimgarray.push(itemimage);
                 orderarray.push(itemname, itemprice, itemimage);
                 ///increase id 
@@ -246,6 +272,7 @@
                 totalitems();
                 costitem();
                 ///console.log(orderidarray);
+                enableCheckoutbutton();
             };
 
             function totalitems(){ 
@@ -256,6 +283,7 @@
                   document.getElementById('totalcost').innerText = 0;
                 }else{
                   document.getElementById('totalcost').innerText = orderpricearray.reduce(sumarray).toFixed(2);
+                  document.getElementById('amount').value = orderpricearray.reduce(sumarray).toFixed(2);
                   function sumarray(total,num){
                       return total + num;
                   };
@@ -265,6 +293,7 @@
             ///<li><img src = "./media/hamburger.jpg" style ="width: 50px;" /> <span>hamburger </span> <span class ="text-danger">$ 1.99 </span></li>
             function clearorder(){
                 let orderlist = document.getElementById('orderlist');
+                document.getElementById('amount').value = 0;
                 orderlist.innerHTML ="";
                 orderitemarray.length = 0;
                 orderpricearray.length = 0;
@@ -273,6 +302,7 @@
                 id = 0;
                 totalitems();
                 costitem();
+                enableCheckoutbutton();
             }
             function deleteitem(orderid,button){
                 const indexnum = orderidarray.indexOf(orderid);
@@ -283,8 +313,34 @@
                 totalitems();
                 costitem();
                 orderlist.removeChild(button.parentElement);
-            }
-        
+
+                if (orderpricearray.length === 0){
+                  document.getElementById('amount').value = 0;
+                  enableCheckoutbutton();
+                }
+            };
+            ////enable check out
+            function enableCheckoutbutton(){
+                const checkoutbutton = document.getElementById('checkoutbutton');
+                checkoutbutton.disabled = true;
+                if(orderidarray.length > 0){
+                    checkoutbutton.disabled = false;
+                }
+                if(orderidarray.length == 0){
+                    const backtofoodtab = document.getElementById('pills-food-tab');
+                    const foodtab = new bootstrap.Tab(backtofoodtab);
+
+                    foodtab.show();
+                }
+            };
+            ////open a new tab
+            function gotocheckouttab(){
+              const firstabel = document.getElementById('pills-checkout-tab');
+              const firsttab = new bootstrap.Tab(firstabel);
+
+              firsttab.show();
+            };
+
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
