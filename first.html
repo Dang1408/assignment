@@ -31,7 +31,7 @@
                         <div class="tab-pane fade show active" id="pills-food" role="tabpanel" aria-labelledby="pills-food-tab">
                             <div class="row row-cols-1 row-cols-md-4 g-4">
                                 <div class="col">
-                                  <div class="card" onclick= "order('Hamburger 1', 4.99,'./media/hamburger.jpg'); totalitems(); costitem()" style="width:200px;height:300px;">
+                                  <div class="card h-100" onclick= "order('Hamburger 1', 4.99,'./media/hamburger.jpg');" style="width:200px;height:300px;">
                                     <img src="./media/hamburger.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
                                       <h5 class="card-title">Hamburger</h5>
@@ -40,8 +40,8 @@
                                   </div>
                                 </div>
                                 <div class="col">
-                                  <div class="card" onclick= "order('Hamburger 2', 2.99, './media/hamburger.jpg')" style="width:200px;height:300px;">
-                                    <img src="./media/hamburger.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                  <div class="card h-100" onclick= "order('Hamburger 2', 2.99, './media/hamburger.jpg');" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/hamburger.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
                                       <h5 class="card-title">Card title</h5>
                                       <p class="card-text">....</p>
@@ -49,8 +49,8 @@
                                   </div>
                                 </div>
                                 <div class="col">
-                                  <div class="card" onclick= "order('Hamburger 3', 6.99, './media/hamburger.jpg')" style="width:200px;height:300px;">
-                                    <img src="./media/hamburger.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                  <div class="card h-100" onclick= "order('Hamburger 3', 6.99, './media/hamburger.jpg');" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/hamburger.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
                                       <h5 class="card-title">Card title</h5>
                                       <p class="card-text">...</p>
@@ -58,8 +58,8 @@
                                   </div>
                                 </div>
                                 <div class="col">
-                                  <div class="card" onclick= "order('Hamburger 4', 7.99, './media/hamburger.jpg')" style="width:200px;height:300px;">
-                                    <img src="./media/hamburger.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                  <div class="card h-100" onclick= "order('Hamburger 4', 7.99, './media/hamburger.jpg');" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/hamburger.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
                                       <h5 class="card-title">Card title</h5>
                                       <p class="card-text">....</p>
@@ -153,14 +153,23 @@
                 <div class= "col-sm-4">
                     <div class = "card">
                         <div class = "card-body">
-                            <h5> Order</h5>
+                            <h5 class ="d-flex justify-content-between align-items-center"><span> Order </span><button onclick="clearorder()" class ="btn btn-sm btn-danger rounded-pill">Clean</button></h5>
                             <hr>
-                            <ul id = "orderlist" class = "list-unstyled">
-                                <li><img src = "./media/hamburger.jpg" style ="width: 50px;" /> <span>hamburger </span> <span class ="text-danger">$ 1.99 </span>
+                            <ul id = "orderlist" class = "list-unstyled" style = "height: 50vh; overflow-y: auto;">
                             </ul>
                             <hr>
-                            <big id="totalitem" class="card-text" ></big>
-                            <big id="totalcost" class="card-text" ></big>
+                            <ul class = "list-unstyled mb-0">
+                              <li class = "d-flex justify-content-between align-items-center">
+                                <big>Total item: </big><big id="totalitem" class="card-text fw-bold" ></big> </span>
+                              </li>
+                              <li class = "d-flex justify-content-between align-items-center">
+                                <big>Total Amount: </big><big class = "fw-bold">$ <span id="totalcost" class="card-text" >0.00</span></big>
+                              </li>
+                              <li>
+                                <button class ="btn btn-primary btn-lg w-100 rounded-pill">CHECK OUT</button>
+                              </li>
+                            </ul>
+                            </li>
                         </div>
                     </div>
                 </div>
@@ -168,56 +177,108 @@
         </div>
 
         <script>
+            const orderidarray = [];
             const orderpricearray= [];
             const orderitemarray = [];
             const orderarray= [];
-    
+            const orderimgarray = [];
+            let id = 0;
             function order(itemname, itemprice, itemimage){
                 ///add into an array
+ 
+                orderidarray.push(id);
                 orderitemarray.push(itemname);
                 orderpricearray.push(itemprice);
+                orderimgarray.push(itemimage);
                 orderarray.push(itemname, itemprice, itemimage);
+                ///increase id 
+                id++;
 
-                const orderlist = document.getElementById('orderlist');
+                let orderlist = document.getElementById('orderlist');
                 ////create the Li tag
                 const orderitem = document.createElement('li');
+                orderitem.className = "d-flex justify-content-between align-items-center";
 
                 const orderitempricespan = document.createElement('span')
                 ///add a text to LI 
-                const orderItemname = document.createTextNode(itemname);
-                const orderprice = document.createTextNode(' $ ' + itemprice);
+                const orderItemname = document.createTextNode(' '+ itemname);
+                const orderprice = document.createTextNode('$' + itemprice);
                 ////
                 orderitempricespan.className = 'text-danger';
                 orderitempricespan.appendChild(orderprice);
                 /////
-                orderitem.appendChild(orderItemname);
+                ////create a delete button
+                const deletebutton = document.createElement('button');
+                const deletebuttontext = document.createTextNode('X');
+
+                ///append the test to delete
+                deletebutton.setAttribute('onclick', 'deleteitem('+id+',this)')
+                deletebutton.appendChild(deletebuttontext);
+                deletebutton.className = 'btn btn-danger rounded-pill';
+
                 ////
-                orderitem.appendChild(orderitempricespan);
-                ///check
-                orderlist.appendChild(orderitem);
-                ///image section
-                ///add img text
                 const orderitemimgtag = document.createElement('img');
                 ///assign the src itemimage to img
                 orderitemimgtag.src = itemimage;
 
-                console.log(itemimage);
-                orderitemimgtag.className = 'w-25';
+                ////console.log(itemimage);
+                orderitemimgtag.className = 'w-25 rounded border border-dark';
+                //create a span
+
+                const orderleftside=document.createElement('span');
+
+                /////add in a side
+                orderleftside.appendChild(orderitemimgtag);
+                orderleftside.appendChild(orderItemname);
+                orderleftside.appendChild(orderitempricespan);
                 //append child to LI
-                orderlist.appendChild(orderitemimgtag);
+                orderitem.appendChild(orderleftside);
+                orderitem.appendChild(deletebutton);
+                ///check
+                orderlist.appendChild(orderitem);
+                ///image section
+                ///add img text
+                totalitems();
+                costitem();
+                ///console.log(orderidarray);
             };
 
             function totalitems(){ 
                 document.getElementById('totalitem').innerText = orderitemarray.length;
             };
             function costitem(){
-                document.getElementById('totalcost').innerText = parsefloat(orderpricearray.reduce(sumarray),2);
-                function sumarray(total,num){
-                    return total + num;
-                };
-                orderpricearray.reduce(itemprice);
+                if (orderpricearray.length == 0){
+                  document.getElementById('totalcost').innerText = 0;
+                }else{
+                  document.getElementById('totalcost').innerText = orderpricearray.reduce(sumarray).toFixed(2);
+                  function sumarray(total,num){
+                      return total + num;
+                  };
+              }
+                //orderpricearray.reduce(itemprice);
             };
             ///<li><img src = "./media/hamburger.jpg" style ="width: 50px;" /> <span>hamburger </span> <span class ="text-danger">$ 1.99 </span></li>
+            function clearorder(){
+                let orderlist = document.getElementById('orderlist');
+                orderlist.innerHTML ="";
+                orderitemarray.length = 0;
+                orderpricearray.length = 0;
+                orderarray.length = 0;
+                orderidarray.length = 0;
+                id = 0;
+                totalitems();
+                costitem();
+            }
+            function deleteitem(orderid,button){
+                const indexnum = orderidarray.indexOf(orderid);
+                orderidarray.splice(indexnum, 1);
+                orderitemarray.splice(indexnum, 1);
+                orderpricearray.splice(indexnum,1);
+                orderimgarray.splice(indexnum,1);
+                totalitems();
+                costitem();
+                orderlist.removeChild(button.parentElement);
+            }
         
         </script>
 
