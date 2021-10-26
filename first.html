@@ -1,454 +1,572 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset ="urf-8">
-        <meta name="viewpoint" content="width=device-width, initial-scale=1">
-        <!--bootstrap CSS-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title> POs sytem </title>
-    </head>
-    <body>
-        <div class ="bg-dark p-3">
-            <div class ="row mx-0 pb-3 bg-light">
-                <div class ="col-sm-8">
-                    <p>Order <small, class ="text-muted">Today, 24/10/2021,16:25</small> </p>
-                <div class= "card rounded-3 mb-3">
-                    <div class = "card-body">
+
+<head>
+    <meta charset="urf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <!--bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title> POs sytem </title>
+</head>
+
+<body>
+    <div class="bg-dark p-3">
+        <div class="row mx-0 pb-3 bg-light">
+            <div class="col-sm-8">
+                <p>Order
+                    <small, class="text-muted">Today, 24/10/2021,16:25</small>
+                </p>
+                <div class="card rounded-3 mb-3">
+                    <div class="card-body">
                         <ul class="nav nav-pills" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-food-tab" data-bs-toggle="pill" data-bs-target="#pills-food" type="button" role="tab" aria-controls="pills-food" aria-selected="true">PIZZA</button>
+                                <button class="nav-link active" id="pills-food-tab" data-bs-toggle="pill" data-bs-target="#pills-food" type="button" role="tab" aria-controls="pills-food" aria-selected="true">PIZZA</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                            <button class="nav-link rounded-pill" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab" aria-controls="pills-drink" aria-selected="false">DRINK</button>
+                                <button class="nav-link rounded-pill" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab" aria-controls="pills-drink" aria-selected="false">DRINK</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                            <button class="nav-link rounded-pill" id="pills-hamburger-tab" data-bs-toggle="pill" data-bs-target="#pills-hamburger" type="button" role="tab" aria-controls="pills-hamburger" aria-selected="false">HAMBURGER</button>
+                                <button class="nav-link rounded-pill" id="pills-hamburger-tab" data-bs-toggle="pill" data-bs-target="#pills-hamburger" type="button" role="tab" aria-controls="pills-hamburger" aria-selected="false">HAMBURGER</button>
                             </li>
                             <li class="nav-item d-none" role="presentation">
-                              <button class="nav-link rounded-pill" id="pills-checkout-tab" data-bs-toggle="pill" data-bs-target="#pills-checkout" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">CHECK OUT</button>
-                              </li>
-                      </ul>
+                                <button class="nav-link rounded-pill" id="pills-checkout-tab" data-bs-toggle="pill" data-bs-target="#pills-checkout" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">CHECK OUT</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                      <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-food" role="tabpanel" aria-labelledby="pills-food-tab">
-                            <div class="row row-cols-1 row-cols-md-4 g-4">
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-food" role="tabpanel" aria-labelledby="pills-food-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4">
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/pizza1.jpeg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body flex-row">
-                                      <h5 class="card-title">Margarita</h5>
-                                      <p class ="card-text">$4.00 </p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick= "order('Margarita', 4.00,'./media/pizza1.jpeg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Margarita</h5>
+                                        <p class="card-text">$4.00 </p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Margarita', 4.00,'./media/pizza1.jpeg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
-                                    
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+
                                     <img draggable="false" src="./media/pizza2.jfif" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Pepperoni</h5>
-                                      <p class="card-text">$7.00</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick= "order('Pepperoni', 7.00, './media/pizza2.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Pepperoni</h5>
+                                        <p class="card-text">$7.00</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Pepperoni', 7.00, './media/pizza2.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img draggable="false" src="./media/pizza3.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Hawaiian</h5>
-                                      <p class="card-text">$6.34</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick= "order('Hawaiia', 6.34, './media/pizza3.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Hawaiian</h5>
+                                        <p class="card-text">$6.34</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Hawaiia', 6.34, './media/pizza3.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img draggable="false" src="./media/pizza4.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Chorizo</h5>
-                                      <p class="card-text">$7.99</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Chorizo', 7.99, './media/pizza4.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Chorizo</h5>
+                                        <p class="card-text">$7.99</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Chorizo', 7.99, './media/pizza4.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                              </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza5.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">New York-Style</h5>
+                                        <p class="card-text">$8.99</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('New York-Style', 8.99, './media/pizza5.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza6.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Greek</h5>
+                                        <p class="card-text">$10.99</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Greek', 10.99, './media/pizza6.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza7.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">St.Louis</h5>
+                                        <p class="card-text">$14.99</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('St.Louis', 14.99, './media/pizza7.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza8.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Detroit</h5>
+                                        <p class="card-text">$9.99</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Detroit', 9.99, './media/pizza8.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza9.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chicago</h5>
+                                        <p class="card-text">$2.99</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Chicago', 2.99, './media/pizza9.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza10.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Neapolitan</h5>
+                                        <p class="card-text">$6.55</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Neapolitan', 6.55, './media/pizza10.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza11.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Californian</h5>
+                                        <p class="card-text">$3.55</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Californian', 3.55, './media/pizza11.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
+                                    <img draggable="false" src="./media/pizza12.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sicilian</h5>
+                                        <p class="card-text">$5.77</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Sicilian', 5.77, './media/pizza12.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <div class="row row-cols-1 row-cols-md-4 g-4">
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                    </div>
+                    <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4">
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/drink1.png" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Pepsi</h5>
-                                      <p class="card-text">$1.23</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Pepsi', 1.23,'./media/drink1.png',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Pepsi</h5>
+                                        <p class="card-text">$1.23</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Pepsi', 1.23,'./media/drink1.png',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/drink2.jfif" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Coca Cola</h5>
-                                      <p class="card-text">$2.00</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Coca Cola', 2.00,'./media/drink2.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Coca Cola</h5>
+                                        <p class="card-text">$2.00</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Coca Cola', 2.00,'./media/drink2.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/drink3.webp" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Seven Up</h5>
-                                      <p class="card-text">$2.25</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Seven Up', 2.25,'./media/drink3.webp',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Seven Up</h5>
+                                        <p class="card-text">$2.25</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Seven Up', 2.25,'./media/drink3.webp',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/drink4.jpg.crdownload" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Heineken</h5>
-                                      <p class="card-text">$3.12</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Heineken', 3.12,'./media/drink4.jpg.crdownload',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Heineken</h5>
+                                        <p class="card-text">$3.12</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Heineken', 3.12,'./media/drink4.jpg.crdownload',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                              </div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-hamburger" role="tabpanel" aria-labelledby="pills-hamburger-tab">
-                            <div class="row row-cols-1 row-cols-md-4 g-4">
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                    </div>
+                    <div class="tab-pane fade" id="pills-hamburger" role="tabpanel" aria-labelledby="pills-hamburger-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4">
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/bg1.jpg" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Cheese Burger</h5>
-                                      <p class="card-text">$5.23</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Cheese Burger', 5.23,'./media/bg1.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Cheese Burger</h5>
+                                        <p class="card-text">$5.23</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Cheese Burger', 5.23,'./media/bg1.jpg',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/bg2.jfif" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Chicken Burger</h5>
-                                      <p class="card-text">$6.23</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Chicken Burger', 6.23,'./media/bg2.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Chicken Burger</h5>
+                                        <p class="card-text">$6.23</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Chicken Burger', 6.23,'./media/bg2.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100"  style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/bg3.jfif" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Double Burger</h5>
-                                      <p class="card-text">$7.32</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Double Burger', 7.32,'./media/bg3.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Double Burger</h5>
+                                        <p class="card-text">$7.32</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Double Burger', 7.32,'./media/bg3.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                                <div class="col">
-                                  <div class="card h-100" style="width:200px;height:300px;">
+                            </div>
+                            <div class="col">
+                                <div class="card h-100" style="width:200px;height:300px;">
                                     <img src="./media/bg4.jfif" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body">
-                                      <h5 class="card-title">Mexican Burger</h5>
-                                      <p class="card-text">$5.24</p>
-                                      <div class="number" >
-                                        <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value" >1</span>
-                                        <button onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                      </div>
-                                      <div class = "btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" 
-                                      onclick= "order('Mexican Burger', 5.24,'./media/bg4.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
+                                        <h5 class="card-title">Mexican Burger</h5>
+                                        <p class="card-text">$5.24</p>
+                                        <div class="number">
+                                            <button style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                            <span class="value">1</span>
+                                            <button onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                        </div>
+                                        <div class="btn btn-primary justify-content-center" style="margin-left: 30px;width:100px;" onclick="order('Mexican Burger', 5.24,'./media/bg4.jfif',this.parentNode.childNodes[5].childNodes[3]);">Submit</div>
                                     </div>
-                                  </div>
                                 </div>
-                              </div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-checkout" role="tabpanel" aria-labelledby="pills-checkout-tab">Check out
-                          <!--Check out-->
-                          <div class="row mb-3">
+                    </div>
+                    <div class="tab-pane fade" id="pills-checkout" role="tabpanel" aria-labelledby="pills-checkout-tab">Check out
+                        <!--Check out-->
+                        <div class="row mb-3">
                             <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Customer's Name</label>
                             <div class="col-sm-8">
-                              <input type="text" class="rounded-pill form-contro l form-control-lg" id="customername" placeholder="order">
+                                <input type="text" class="rounded-pill form-contro l form-control-lg" id="customername" placeholder="order">
                             </div>
-                          </div>
+                        </div>
 
-                          <div class="row mb-3">
+                        <div class="row mb-3">
                             <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Telephone's number</label>
                             <div class="col-sm-8">
-                              <input type="number" class="rounded-pill form-contro form-control-lg" id="telephonenumber" placeholder="phone">
+                                <input type="number" class="rounded-pill form-contro form-control-lg" id="telephonenumber" placeholder="phone">
                             </div>
-                          </div>
+                        </div>
 
-                          <!--Amount of order-->
-                          <div class="row  mb-3">
+                        <!--Amount of order-->
+                        <div class="row  mb-3">
                             <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Total of amount:</label>
                             <div class="col-sm-8">
-                              <input type="number" step = "0.01" class="rounded-pill form-contro l form-control-lg text-center" id="amount" placeholder="amount" disabled>
+                                <input type="number" step="0.01" class="rounded-pill form-contro l form-control-lg text-center" id="amount" placeholder="amount" disabled>
                             </div>
-                          </div>
+                        </div>
 
-                        </div>
-                        
-                      </div>
+                    </div>
+
                 </div>
-                <div class= "col-sm-4">
-                    <div class = "card">
-                        <div class = "card-body">
-                            <h5 class ="d-flex justify-content-between align-items-center"><span> Order </span><button onclick="clearorder()" class ="btn btn-sm btn-danger rounded-pill">Clear</button></h5>
-                            <hr>
-                            <ul id = "orderlist" class = "list-unstyled" style = "height: 50vh; overflow-y: auto;">
-                            </ul>
-                            <hr>
-                            <ul class = "list-unstyled mb-0">
-                              <li class = "d-flex justify-content-between align-items-center">
-                                <big>Total item: </big><big id="totalitem" class="card-text fw-bold" ></big> </span>
-                              </li>
-                              <li class = "d-flex justify-content-between align-items-center">
-                                <big>Total Amount: </big><big class = "fw-bold">$ <span id="totalcost" class="card-text" >0.00</span></big>
-                              </li>
-                              <li>
-                                <button disabled="" id="checkoutbutton" onclick= "gotocheckouttab()" class ="btn btn-primary btn-lg w-100 rounded-pill">CHECK OUT</button>
-                              </li>
-                            </ul>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="d-flex justify-content-between align-items-center"><span> Order </span><button onclick="clearorder()" class="btn btn-sm btn-danger rounded-pill">Clear</button></h5>
+                        <hr>
+                        <ul id="orderlist" class="list-unstyled" style="height: 50vh; overflow-y: auto;">
+                        </ul>
+                        <hr>
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex justify-content-between align-items-center">
+                                <big>Total item: </big><big id="totalitem" class="card-text fw-bold"></big> </span>
                             </li>
-                        </div>
+                            <li class="d-flex justify-content-between align-items-center">
+                                <big>Total Amount: </big><big class="fw-bold">$ <span id="totalcost" class="card-text" >0.00</span></big>
+                            </li>
+                            <li>
+                                <button disabled="" id="checkoutbutton" onclick="gotocheckouttab()" class="btn btn-primary btn-lg w-100 rounded-pill">CHECK OUT</button>
+                            </li>
+                        </ul>
+                        </li>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script>
-            const arrquantity = [];
-            const orderidarray = [];
-            const orderpricearray= [];
-            const orderitemarray = [];
-            const orderarray= [];
-            const orderimgarray = [];
-            const orderitemidarray = [];
-            let id = 0;
+    <script>
+        const arrquantity = [];
+        const orderidarray = [];
+        const orderpricearray = [];
+        const orderitemarray = [];
+        const orderarray = [];
+        const orderimgarray = [];
+        const orderitemidarray = [];
+        let id = 0;
 
 
-            //childNodes[3].childNodes[5].childNodes[3].innerHTML
-            let increase = e=>{
-              // console.log(e.parentNode);
-              // e.parentNode.childNode[3].innerHTML++;
-              e.parentNode.childNodes[3].innerHTML++;
+        //childNodes[3].childNodes[5].childNodes[3].innerHTML
+        let increase = e => {
+            // console.log(e.parentNode);
+            // e.parentNode.childNode[3].innerHTML++;
+            e.parentNode.childNodes[3].innerHTML++;
 
-            };
-            let decrease = e=>{
-              if(e.parentNode.childNodes[3].innerHTML>1)
-              e.parentNode.childNodes[3].innerHTML--;
-            };
-            function order(itemname, itemprice, itemimage, parent){
-                ///add into an array
-                quantity = parent.innerHTML;
-                // console.log(quantity);
-                parent.innerHTML = 1;
-                orderidarray.push(id);
-                orderitemarray.push(itemname);
-                orderpricearray.push(itemprice);
-                ///orderitemidarray.push(itemid);
-                orderimgarray.push(itemimage);
-                arrquantity.push(quantity);
-                orderarray.push(itemname, itemprice, itemimage);
-                console.log(arrquantity)  ;
-                ///increase id 
-                id++;
+        };
+        let decrease = e => {
+            if (e.parentNode.childNodes[3].innerHTML > 1)
+                e.parentNode.childNodes[3].innerHTML--;
+        };
 
-                let orderlist = document.getElementById('orderlist');
-                ////create the Li tag
-                const orderitem = document.createElement('li');
-                orderitem.className = "d-flex justify-content-between align-items-center";
+        function order(itemname, itemprice, itemimage, parent) {
+            ///add into an array
+            quantity = parent.innerHTML;
+            // console.log(quantity);
+            parent.innerHTML = 1;
+            orderidarray.push(id);
+            orderitemarray.push(itemname);
+            orderpricearray.push(itemprice);
+            ///orderitemidarray.push(itemid);
+            orderimgarray.push(itemimage);
+            arrquantity.push(quantity);
+            orderarray.push(itemname, itemprice, itemimage);
+            console.log(arrquantity);
+            ///increase id 
+            id++;
 
-                const orderitempricespan = document.createElement('span')
+            let orderlist = document.getElementById('orderlist');
+            ////create the Li tag
+            const orderitem = document.createElement('li');
+            orderitem.className = "d-flex justify-content-between align-items-center";
+
+            const orderitempricespan = document.createElement('span')
                 ///add a text to LI 
-                const orderItemname = document.createTextNode(' '+ itemname+"   ");
-                const orderprice = document.createTextNode('$' + itemprice + "    Quantity: "+quantity);
-                ////
-                orderitempricespan.className = 'text-danger';
-                orderitempricespan.appendChild(orderprice);
-                /////
-                ////create a delete button
-                const deletebutton = document.createElement('button');
-                const deletebuttontext = document.createTextNode('X');
+            const orderItemname = document.createTextNode(' ' + itemname + "   ");
+            const orderprice = document.createTextNode('$' + itemprice + "    Quantity: " + quantity);
+            ////
+            orderitempricespan.className = 'text-danger';
+            orderitempricespan.appendChild(orderprice);
+            /////
+            ////create a delete button
+            const deletebutton = document.createElement('button');
+            const deletebuttontext = document.createTextNode('X');
 
-                ///append the test to delete
-                deletebutton.setAttribute('onclick', 'deleteitem('+id+',this)')
-                deletebutton.appendChild(deletebuttontext);
-                deletebutton.className = 'btn btn-danger rounded-pill';
+            ///append the test to delete
+            deletebutton.setAttribute('onclick', 'deleteitem(' + id + ',this)')
+            deletebutton.appendChild(deletebuttontext);
+            deletebutton.className = 'btn btn-danger rounded-pill';
 
-                ////
-                const orderitemimgtag = document.createElement('img');
-                ///assign the src itemimage to img
-                orderitemimgtag.src = itemimage;
+            ////
+            const orderitemimgtag = document.createElement('img');
+            ///assign the src itemimage to img
+            orderitemimgtag.src = itemimage;
 
-                ////console.log(itemimage);
-                orderitemimgtag.className = 'w-25 rounded border border-dark';
-                //create a span
+            ////console.log(itemimage);
+            orderitemimgtag.className = 'w-25 rounded border border-dark';
+            //create a span
 
-                const orderleftside=document.createElement('span');
+            const orderleftside = document.createElement('span');
 
-                /////add in a side
-                orderleftside.appendChild(orderitemimgtag);
-                orderleftside.appendChild(orderItemname);
-                orderleftside.appendChild(orderitempricespan);
-                //append child to LI
-                orderitem.appendChild(orderleftside);
-                orderitem.appendChild(deletebutton);
-                ///check
-                orderlist.appendChild(orderitem);
-                ///image section
-                ///add img text
-                totalitems();
-                costitem();
-                ///console.log(orderidarray);
-                enableCheckoutbutton();
-            };
+            /////add in a side
+            orderleftside.appendChild(orderitemimgtag);
+            orderleftside.appendChild(orderItemname);
+            orderleftside.appendChild(orderitempricespan);
+            //append child to LI
+            orderitem.appendChild(orderleftside);
+            orderitem.appendChild(deletebutton);
+            ///check
+            orderlist.appendChild(orderitem);
+            ///image section
+            ///add img text
+            totalitems();
+            costitem();
+            ///console.log(orderidarray);
+            enableCheckoutbutton();
+        };
 
-            function totalitems(){ 
-                document.getElementById('totalitem').innerText = orderitemarray.length;
-            };
-            function costitem(){
-                if (orderpricearray.length == 0){
-                  document.getElementById('totalcost').innerText = 0;
-                }else{
-                  document.getElementById('totalcost').innerText = orderpricearray.reduce(sumarray).toFixed(2);
-                  document.getElementById('amount').value = orderpricearray.reduce(sumarray).toFixed(2);
-                  function sumarray(total,num){
-                      return total + num;
-                  };
-              }
-                //orderpricearray.reduce(itemprice);
-            };
-            ///<li><img src = "./media/hamburger.jpg" style ="width: 50px;" /> <span>hamburger </span> <span class ="text-danger">$ 1.99 </span></li>
-            function clearorder(){
-                let orderlist = document.getElementById('orderlist');
+        function totalitems() {
+            document.getElementById('totalitem').innerText = orderitemarray.length;
+        };
+
+        function costitem() {
+            if (orderpricearray.length == 0) {
+                document.getElementById('totalcost').innerText = 0;
+            } else {
+                document.getElementById('totalcost').innerText = orderpricearray.reduce(sumarray).toFixed(2);
+                document.getElementById('amount').value = orderpricearray.reduce(sumarray).toFixed(2);
+
+                function sumarray(total, num) {
+                    return total + num;
+                };
+            }
+            //orderpricearray.reduce(itemprice);
+        };
+        ///<li><img src = "./media/hamburger.jpg" style ="width: 50px;" /> <span>hamburger </span> <span class ="text-danger">$ 1.99 </span></li>
+        function clearorder() {
+            let orderlist = document.getElementById('orderlist');
+            document.getElementById('amount').value = 0;
+            orderlist.innerHTML = "";
+            orderitemarray.length = 0;
+            orderpricearray.length = 0;
+            orderarray.length = 0;
+            orderidarray.length = 0;
+            arrquantity.length = 0;
+            id = 0;
+            totalitems();
+            costitem();
+            enableCheckoutbutton();
+        }
+
+        function deleteitem(orderid, button) {
+            const indexnum = orderidarray.indexOf(orderid);
+            orderidarray.splice(indexnum, 1);
+            orderitemarray.splice(indexnum, 1);
+            orderpricearray.splice(indexnum, 1);
+            orderimgarray.splice(indexnum, 1);
+            arrquantity.splice(indexnum, 1);
+
+            totalitems();
+            costitem();
+            orderlist.removeChild(button.parentElement);
+
+            if (orderpricearray.length === 0) {
                 document.getElementById('amount').value = 0;
-                orderlist.innerHTML ="";
-                orderitemarray.length = 0;
-                orderpricearray.length = 0;
-                orderarray.length = 0;
-                orderidarray.length = 0;
-                arrquantity.length = 0;
-                id = 0;
-                totalitems();
-                costitem();
                 enableCheckoutbutton();
             }
-            function deleteitem(orderid,button){
-                const indexnum = orderidarray.indexOf(orderid);
-                orderidarray.splice(indexnum, 1);
-                orderitemarray.splice(indexnum, 1);
-                orderpricearray.splice(indexnum,1);
-                orderimgarray.splice(indexnum,1);
-                arrquantity.splice(indexnum,1);
+        };
+        ////enable check out
+        function enableCheckoutbutton() {
+            const checkoutbutton = document.getElementById('checkoutbutton');
+            checkoutbutton.disabled = true;
+            if (orderidarray.length > 0) {
+                checkoutbutton.disabled = false;
+            }
+            if (orderidarray.length == 0) {
+                const backtofoodtab = document.getElementById('pills-food-tab');
+                const foodtab = new bootstrap.Tab(backtofoodtab);
 
-                totalitems();
-                costitem();
-                orderlist.removeChild(button.parentElement);
+                foodtab.show();
+            }
+        };
+        ////open a new tab
+        function gotocheckouttab() {
+            const firstabel = document.getElementById('pills-checkout-tab');
+            const firsttab = new bootstrap.Tab(firstabel);
 
-                if (orderpricearray.length === 0){
-                  document.getElementById('amount').value = 0;
-                  enableCheckoutbutton();
-                }
-            };
-            ////enable check out
-            function enableCheckoutbutton(){
-                const checkoutbutton = document.getElementById('checkoutbutton');
-                checkoutbutton.disabled = true;
-                if(orderidarray.length > 0){
-                    checkoutbutton.disabled = false;
-                }
-                if(orderidarray.length == 0){
-                    const backtofoodtab = document.getElementById('pills-food-tab');
-                    const foodtab = new bootstrap.Tab(backtofoodtab);
+            firsttab.show();
+        };
+    </script>
 
-                    foodtab.show();
-                }
-            };
-            ////open a new tab
-            function gotocheckouttab(){
-              const firstabel = document.getElementById('pills-checkout-tab');
-              const firsttab = new bootstrap.Tab(firstabel);
-
-              firsttab.show();
-            };
-
-        </script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 
 
-   
+
 </html>
