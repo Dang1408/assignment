@@ -669,9 +669,11 @@
                             <p class="card-text">
                                 <h5 class="d-flex justify-content-between align-items-center">
                                     <span> <p class="card-text"><b>Quantity</b></p></span>
-                                    <button type="button">
-                                        <!--button for increasing quantity. Min = 1, max =99-->
-                                    </button>
+                                    <div class="number">
+                                        <button class = "rounded-pill" style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                        <span class="value">1</span>
+                                        <button class = "rounded-pill" onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                    </div>
                                 </h5>
                             </p>
                             <hr>
@@ -680,7 +682,7 @@
                             <p class="fw-bold">Baking material:</p>
                             <p class="fw-bold">Food decoration:</p>
                             <p class="fs-4 fw-bold ">Side dishes(<font color="red">*</font>)</p>
-                            <p class="fs-6 fst-italic fw-lighter"?>Please select on of the properties below</p>
+                            <p class="fs-6 fst-italic fw-lighter">Please select on of the properties below</p>
                             <div class="form-check">
                                 <input class="form-check-input" style="background-color: blue;" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
