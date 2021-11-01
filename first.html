@@ -46,7 +46,7 @@
                                         <p class="card-text">
                                             <h5 class="d-flex justify-content-between align-items-center">
                                                 <span> <p class="card-text"><b><font color="red">$7.00</font></b></p></span>
-                                                <button type="button" class="btn btn-primary rounded pid" style = "background-color: blue; text-align: left;" data-bs-toggle="modal" data-bs-target="#detailfood">
+                                                <button type="button"  onclick="userAction(312, 'Hamburger')" class="btn btn-primary rounded pid" style = "background-color: blue; text-align: left;" data-bs-toggle="modal" data-bs-target="#detailfood">
                                                     <img src = "./media/cart.png" style="width:20px;height:20px">
                                                 </button>
                                             </h5>
@@ -646,53 +646,8 @@
             <button type="button" class="btn-close" style ="background-color: bisque;" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class = "container">
-                    <div class = "row">
-                        <div class = "col-4">
-                            <!--test form-->
-                            <img src="./media/bg5.jpg" class="img-thumbnail" alt="...">
-                        </div>
-                        <div class = "col-8">
-                            <div>
-                                <div class="d-flex bd-highlight mb-3">
-                                    <div class="p-2 bd-highlight fs-5">ID</div>
-                                    <div class="p-2 bd-highlight fs-5">Hamburger <!--put id tag in here--></div>
-                                    <div class="ms-auto p-2 bd-highlight fs-5">Unit Price</div>
-                                </div>
-                                <div class="d-flex bd-highlight mb-3">
-                                    <div class="p-2 bd-highlight fs-6">01 <!--put id card in here--></div>
-                                    <div class="p-2 bd-highlight fs-6">Hamburger <!--put id.name tag in here--></div>
-                                    <div class="ms-auto p-2 bd-highlight fs-6">Unit Price <!--put id.price tag in here--></div>
-                                </div>
-                            </div>
-                            <hr>
-                            <p class="card-text">
-                                <h5 class="d-flex justify-content-between align-items-center">
-                                    <span> <p class="card-text"><b>Quantity</b></p></span>
-                                    <div class="number">
-                                        <button class = "rounded-pill" style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
-                                        <span class="value">1</span>
-                                        <button class = "rounded-pill" onclick="increase(this)" style="margin-left: 10px;">+</button>
-                                    </div>
-                                </h5>
-                            </p>
-                            <hr>
-                            <p class="fw-bold">Protein:</p>
-                            <p class="fw-bold">Additives:</p>
-                            <p class="fw-bold">Baking material:</p>
-                            <p class="fw-bold">Food decoration:</p>
-                            <p class="fs-4 fw-bold ">Side dishes(<font color="red">*</font>)</p>
-                            <p class="fs-6 fst-italic fw-lighter">Please select on of the properties below</p>
-                            <div class="form-check">
-                                <input class="form-check-input" style="background-color: blue;" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  Vegetables
-                                </label>
-                              </div>
-                            <hr>
-                            <button class="btn btn-primary btn-lg w-100 rounded-pill" >ADD into order</button>
-                    </div>
-                </div>
+                <div class = "container" id="clickCard">
+                   
                 </div>
             </div>
         </div>
@@ -709,6 +664,63 @@
         const orderitemidarray = [];
         let id = 0;
 
+        const userAction = async (n, catagory) => {
+            const response = await fetch('https://617fa513055276001774fb86.mockapi.io/Hamberger/'+n);
+            const myJson = await response.json();
+            console.log(myJson);
+            // let a = n - 300;
+            // console.log(typeof(a));
+
+            document.getElementById('clickCard').innerHTML=
+            `<div class = "row">
+                        <div class = "col-4">
+                            <!--test form-->
+                            <img src="`+myJson.ImageLink+`" class="img-thumbnail" alt="...">
+                        </div>
+                        <div class = "col-8">
+                            <div>
+                                <div class="d-flex bd-highlight mb-3">
+                                    <div class="p-2 bd-highlight fs-5">SKU</div>
+                                    <div class="p-2 bd-highlight fs-5">`+catagory+`<!--put id tag in here--></div>
+                                    <div class="ms-auto p-2 bd-highlight fs-5">Unit Price</div>
+                                </div>
+                                <div class="d-flex bd-highlight mb-3">
+                                    <div class="p-2 bd-highlight fs-6">`+myJson.id+`<!--put id card in here--></div>
+                                    <div class="p-2 bd-highlight fs-6">`+myJson.Name+`<!--put id.name tag in here--></div>
+                                    <div class="ms-auto p-2 bd-highlight fs-6">`+myJson.Price+`<!--put id.price tag in here--></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <p class="card-text">
+                                <h5 class="d-flex justify-content-between align-items-center">
+                                    <span> <p class="card-text"><b>Quantity</b></p></span>
+                                    <div class="number">
+                                        <button class = "rounded-pill" style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                        <span class="value">1</span>
+                                        <button class = "rounded-pill" onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                    </div>
+                                </h5>
+                            </p>
+                            <hr>
+                            <p class="fw-bold">Protein: `+myJson.Protein+`</p>
+                            <p class="fw-bold">Additives: `+myJson.Addictives+`</p>
+                            <p class="fw-bold">Baking material: `+myJson.BakingMaterial+`</p>
+                            <p class="fw-bold">Food decoration: `+myJson.FoodDeco+`</p>
+                            <p class="fs-4 fw-bold ">Side dishes(<font color="red">*</font>)</p>
+                            <p class="fs-6 fst-italic fw-lighter">Please select on of the properties below</p>
+                            <div class="form-check">
+                                <input class="form-check-input" style="background-color: blue;" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Vegetables
+                                </label>
+                              </div>
+                            <hr>
+                            <button class="btn btn-primary btn-lg w-100 rounded-pill" id="addinorder" onclick="order('`+myJson.Name+`', `+myJson.Price+`, '`+myJson.ImageLink+`',this.parentNode.childNodes[6].childNodes[3].childNodes[3]);">ADD into order</button>
+                        </div>
+                    </div>`;
+            
+        }
+
 
         //childNodes[3].childNodes[5].childNodes[3].innerHTML
         let increase = e => {
@@ -723,8 +735,8 @@
         };
 
         function order(itemname, itemprice, itemimage, parent) {
-            ///add into an array
-            quantity = parent.innerHTML;
+             ///add into an array
+             quantity = parent.innerHTML;
             // console.log(quantity);
             parent.innerHTML = 1;
             orderidarray.push(id);
@@ -735,6 +747,7 @@
             arrquantity.push(quantity);
             orderarray.push(itemname, itemprice, itemimage);
             console.log(arrquantity);
+            console.log(orderpricearray);
             ///increase id 
             id++;
 
@@ -796,12 +809,14 @@
             if (orderpricearray.length == 0) {
                 document.getElementById('totalcost').innerText = 0;
             } else {
-                document.getElementById('totalcost').innerText = orderpricearray.reduce(sumarray).toFixed(2);
-                document.getElementById('amount').value = orderpricearray.reduce(sumarray).toFixed(2);
-
-                function sumarray(total, num) {
-                    return total + num;
-                };
+                let totalcost = 0;
+                let totalamount = 0;
+                for(let i = 0; i<arrquantity.length;i++){
+                    totalcost += arrquantity[i] * orderpricearray[i];
+                    totalamount += arrquantity[i];
+                }
+                document.getElementById('totalcost').innerText = totalcost;
+                document.getElementById('amount').value = totalamount;
             }
             //orderpricearray.reduce(itemprice);
         };
