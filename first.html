@@ -677,7 +677,7 @@
                                 <div class="card h-100" style="width:200px;height:200px;">
                                     <img src="${items.ImageLink}" class="card-img-top" alt="..." style="width:200px;height:200px;">
                                     <div class="card-body flex-row">
-                                        <h5 class="card-title"><b><font color="red">1.</font>${items.Name}</b></h5>
+                                        <h5 class="card-title"><b>${items.Name}</b></h5>
                                         <p class="card-text">
                                             <h5 class="d-flex justify-content-between align-items-center">
                                                 <span> <p class="card-text"><b><font color="red">$${items.Price}</font></b></p></span>
@@ -848,8 +848,8 @@
                     totalcost += arrquantity[i] * orderpricearray[i];
                     totalamount += arrquantity[i];
                 }
-                document.getElementById('totalcost').innerText = totalcost;
-                document.getElementById('amount').value = totalamount;
+                document.getElementById('totalcost').innerText = totalcost.toFixed(2);
+                document.getElementById('amount').value = totalamount.toFixed(2);
             }
             //orderpricearray.reduce(itemprice);
         };
