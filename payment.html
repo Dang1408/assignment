@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
+    <script src="https://kit.fontawesome.com/f7ccff0c24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="paymentform.css">
+</head>
 </head>
 
 <body>
@@ -13,17 +15,10 @@
         <header class="header">
             <div class="grid1">
                 <nav class="header__navbar">
-                    <ul class="header__navbar-list">
-                        <li class="header__navbar-item">
-                            <form method="post" id="xxx" action="./first.html">
-                                <button>
-                                <input class="buttonx" type="image" src="./media_version/back2.jpg" alt="Button" height="15" width="15" />
-                            </button>
-                            </form>
+                    
+                    
+                    <a href="./first.html"><i class="fas fa-long-arrow-alt-left" id="back"> Back</i> </a>
 
-                        </li>
-                        <li class="header__navbar-item"><b>Back</b></li>
-                    </ul>
                     <ul class="header__navbar-list">
                         <li class="header__navbar-item">
                             <b>PAYMENT</b>
@@ -52,7 +47,7 @@
                     </div>
 
                     <div class="second">
-                        <form action="./first.html" method="get">
+                        <form >
                             <input type="submit" class="boxmail" value="" disable=" ">
                         </form>
 
@@ -60,7 +55,7 @@
                             <nav class="header__navbar2">
                                 <ul class="header__navbar-list2">
                                     <li class="header__navbar-item2">
-                                        <img src="./media_version/circle.jpg" alt="hu " style="height: 21px; width: 22px;">
+                                        <i class="far fa-circle"style="height: 21px; color:green;"></i>
                                         <font color="green"><b> Credit card</b><small> - credit or debt</small></font>
                                     </li>
                                 </ul>
@@ -74,8 +69,12 @@
                     </div>
                     <div class="third">
                         <div class="inside">
+                            <form >
+                                <label for="fname" id="cardname">Card Number</label><br>
                             <img src="./media_version/credit.jpg" alt=" " style="height:21px; width: 22px;">
-                            <input type="text" class="goup" placeholder="Card number">
+
+                                <input type="text" id="inputCard" ><br>
+                            </form>
                         </div>
                         <div class="div_left">
                            MM/YY
