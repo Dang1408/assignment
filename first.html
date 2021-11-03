@@ -159,7 +159,7 @@
             // có thể là kiểu mảng array hoặc đối tượng object
             // Gán cho biến html để thêm từng object vào.
             const html = myJson.map((items) =>{
-                console.log(items);
+                // console.log(items);
             return `
             <div class="col">
                                 <div class="card h-100" style="width:200px;height:200px;">
@@ -192,7 +192,7 @@
             // có thể là kiểu mảng array hoặc đối tượng object
             // Gán cho biến html để thêm từng object vào.
             const html = myJson.map((items) =>{
-                console.log(items);
+                // console.log(items);
             return `
             <div class="col">
                                 <div class="card h-100" style="width:200px;height:200px;">
@@ -225,7 +225,7 @@
             // có thể là kiểu mảng array hoặc đối tượng object
             // Gán cho biến html để thêm từng object vào.
             const html = myJson.map((items) =>{
-                console.log(items);
+                // console.log(items);
             return `
             <div class="col">
                                 <div class="card h-100" style="width:200px;height:200px;">
@@ -402,8 +402,8 @@
                     totalcost += arrquantity[i] * orderpricearray[i];
                     totalamount += arrquantity[i];
                 }
-                document.getElementById('totalcost').innerText = totalcost.toFixed(2);
-                document.getElementById('amount').value = totalamount.toFixed(2);
+                document.getElementById('totalcost').innerText = parseFloat(totalcost.toFixed(2));
+                document.getElementById('amount').value = totalamount;
             }
             //orderpricearray.reduce(itemprice);
         };
