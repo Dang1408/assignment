@@ -1,4 +1,4 @@
-                                    .header {
+                                   .header {
                                         height: 40px;
                                         background-image: linear-gradient(0, #FFFAFA, #FFFFFF);
                                     }
@@ -178,4 +178,24 @@
                                         text-align: center;
                                         padding-top: 10px;
                                         color: green;
+                                    }
+                                    
+                                    .goup {
+                                        border: none;
+                                    }
+                                    
+                                    .goup1 {
+                                        width: 140px;
+                                        border: none;
+                                    }
+                                    
+                                    .j {
+                                        border: none;
+                                        background-color: #33CC66;
+                                    }
+                                    
+                                    .h {
+                                        border: none;
+                                        background-color: white;
+                                        color: #33CC66;
                                     }
