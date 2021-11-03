@@ -173,11 +173,9 @@
                                     .inside_other {
                                         margin: 90px 30px 20px 30px;
                                         border: none;
-                                        background-color: #33CC66;
                                         height: 50px;
                                         text-align: center;
                                         padding-top: 10px;
-                                        color: green;
                                     }
                                     
                                     .goup {
@@ -196,8 +194,7 @@
                                     
                                     .h {
                                         border: none;
-                                        background-color: white;
-                                        color: #33CC66;
+                                        background-color: #33CC66;
                                     }
                                      .goup2 {
                                        border: none;
