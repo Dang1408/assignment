@@ -92,7 +92,9 @@
                         </div>
                         <!--Payment button-->
                         <li>
-                            <button class="btn btn-primary btn-lg w-100 rounded-pill">Payment</button>
+                            <form action="./payment.html" method="post">
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill" onclick="passValues();">Payment</button>
+                            </form>
                         </li>
                     </div>
                 </div>
@@ -452,6 +454,11 @@
 
             firsttab.show();
         };
+          function passValues() {
+            var firstname = document.getElementById('amount').value;
+            localStorage.setItem('textvalue', firstname);
+            return false;
+        }
     </script>
     <!--date-->
     <script>
