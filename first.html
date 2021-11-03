@@ -29,7 +29,6 @@
                                 <button class="nav-link rounded-pill" id="pills-hamburger-tab" data-bs-toggle="pill" data-bs-target="#pills-hamburger" type="button" role="tab" aria-controls="pills-hamburger" aria-selected="false">HAMBURGER</button>
                             </li>
                             <li class="nav-item d-none" role="presentation">
-
                                 <button class="nav-link rounded-pill" id="pills-checkout-tab" data-bs-toggle="pill" data-bs-target="#pills-checkout" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">CHECK OUT</button>
                             </li>
                         </ul>
@@ -76,9 +75,9 @@
                         </div>
                         <!--Amount of order-->
                         <div class="row  mb-3">
-                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Total of amount</label>
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Total of amount($)</label>
                             <div class="col-sm-8">
-                                <input type="number" step="0.01" class="rounded-pill form-contro l form-control-lg text-center" id="amount" placeholder="amount" disabled>
+                                <input type="number" step="0.01" class="rounded-pill form-contro l form-control-lg text-center" style="border:none;" id="amount" placeholder="amount" disabled>
                             </div>
                         </div>
                         <!--Note-->
@@ -416,7 +415,7 @@
             enableCheckoutbutton();
         }
         function deleteitem(orderid, button) {
-            const indexnum = orderidarray.indexOf(orderid);
+            const indexnum = orderidarray.indexOf(orderid-1);
             console.log(orderid);
             orderidarray.splice(indexnum, 1);
             orderitemarray.splice(indexnum, 1);
@@ -426,7 +425,7 @@
             totalitems();
             costitem();
             orderlist.removeChild(button.parentElement);
-            id--;
+            //id--;
             if (orderpricearray.length === 0) {
                 document.getElementById('amount').value = 0;
                 enableCheckoutbutton();
