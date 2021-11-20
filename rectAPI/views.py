@@ -1,11 +1,10 @@
-import django
 from django import forms
 from django.shortcuts import redirect, render
-
-from rectAPI.models import order
-
+from rectAPI.models import order, pizza, drink, hamburger
+from django.http import HttpResponse
 from .forms import OrderForm
-
+#from rectAPI.serializers import PizzaSerializer
+import json
 # Create your views here.
 def index(request):
     return render(request, "first.html")
@@ -13,15 +12,28 @@ def index(request):
 def payment(request):
     return render(request, "payment.html")
 
-def order(request):
 
-    if request.method=="POST":
-        print("this is post")
-        f_name = request.POST['fname']
-        l_name = request.POST['lname']
-        mobilephone = request.POST['phone']
-        totalofcost = request.POST.get('amount',False)
-        notehere = request.POST['note']
-        ins = order(first_name = f_name, last_name = l_name, phone = mobilephone , totalcost =totalofcost, note =notehere)
-        ins.save()
-    return render(request,'payment.html')
+def pizzas(request):
+    items = pizza.objects.all().values()
+
+    items_list = list(items)
+
+    data = json.dumps(items_list)
+    return HttpResponse(data, content_type="application/json")
+
+def drinks(request):
+    items = drink.objects.all().values()
+
+    items_list = list(items)
+
+    data = json.dumps(items_list)
+    return HttpResponse(data, content_type="application/json")
+
+def hamburgers(request):
+    items = hamburger.objects.all().values()
+
+    items_list = list(items)
+
+    data = json.dumps(items_list)
+    return HttpResponse(data, content_type="application/json")
+

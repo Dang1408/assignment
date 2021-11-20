@@ -9,4 +9,7 @@ urlpatterns = [
     path('payment/', views.payment),
     #path('',views.payment),
     path('payment',views.order),
+    path('pizza/', views.pizzas, name ="pizza"),
+    path('drink/', views.drinks, name ="drink"),
+    path('hamburger/', views.hamburgers, name ="hamburger"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
