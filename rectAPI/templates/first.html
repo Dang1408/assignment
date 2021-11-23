@@ -111,7 +111,7 @@
                         <hr>
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex justify-content-between align-items-center">
-                                <big>Total item: </big><big id="totalitem" class="card-text fw-bold"></big> </span>
+                                <big>Total Item: </big><big class="fw-bold"><span id="totalitem" class="card-text">0</span></big>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
                                 <big>Total Amount: </big><big class="fw-bold">$ <span id="totalcost" class="card-text" >0.00</span></big>
@@ -291,6 +291,27 @@
                             <p class="fw-bold">Additives: `+Addictives+`</p>
                             <p class="fw-bold">Baking material: `+BakingMaterial+`</p>
                             <p class="fw-bold">Food decoration: `+FoodDeco+`</p>
+                            <p class="fs-4 fw-bold ">Size</p>
+                            <p class="fs-6 fst-italic fw-lighter">Please select one of the size below</p>
+                            <div class="form-check">
+                                <input class="form-check-input" style="background-color: blue;" type="checkbox" value="" id="flexCheckDefaultS">
+                                <label class="form-check-label" for="flexCheckDefaultS">
+                                    Size S (6 inch)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" style="background-color: blue;" type="checkbox" value="" id="flexCheckDefaultM">
+                                <label class="form-check-label" for="flexCheckDefaultM">
+                                    Size M (9 inch)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" style="background-color: blue;" type="checkbox" value="" id="flexCheckDefaultL">
+                                <label class="form-check-label" for="flexCheckDefaultL">
+                                    Size L (12 inch)
+                                </label>
+                            </div> 
+                            <hr>
                             <p class="fs-4 fw-bold ">Side dishes(<font color="red">*</font>)</p>
                             <p class="fs-6 fst-italic fw-lighter">Please select on of the properties below</p>
                             <div class="form-check">
@@ -325,10 +346,10 @@
             parent.innerHTML = 1;
             orderidarray.push(id);
             orderitemarray.push(itemname);
-            orderpricearray.push(itemprice);
+            //orderpricearray.push(itemprice);
             ///orderitemidarray.push(itemid);
             orderimgarray.push(itemimage);
-            arrquantity.push(quantity);
+            ///arrquantity.push(quantity);
             orderarray.push(itemname, itemprice, itemimage);
             //console.log(arrquantity);
             //console.log(orderpricearray);
@@ -342,6 +363,37 @@
             const orderitempricespan = document.createElement('span')
                 ///add a text to LI 
             const orderItemname = document.createTextNode(' ' + itemname + "   ");
+            /////khanh add
+            document.createTextNode(' $' + itemprice + "    Quantity: " + quantity);
+
+            const ordersizespan = document.createElement('span')
+            var sizeS = document.getElementById("flexCheckDefaultS").checked;   
+            var sizeM = document.getElementById("flexCheckDefaultM").checked;
+            var sizeL = document.getElementById("flexCheckDefaultL").checked;   
+            let size = ""; 
+            if ((sizeS && sizeM) || (sizeS && sizeL) || (sizeM && sizeL)) {
+                alert("Please just choose one size");
+                return;
+            }
+            else if (sizeS){
+                size = " Size S ";
+            }
+            else if (sizeM){
+                size = " Size M ";
+            }
+            else if (sizeL){
+                size = " Size L ";
+            }
+            else {
+                alert("You have not selected the size");
+                return;
+            }
+            orderpricearray.push(itemprice);
+            arrquantity.push(quantity);
+            const ordersize = document.createTextNode(size + '-');
+            ordersizespan.className = 'text-danger';
+            ordersizespan.appendChild(ordersize);
+            ///
             const orderprice = document.createTextNode('$' + itemprice + "    Quantity: " + quantity);
             ////
             orderitempricespan.className = 'text-danger';
@@ -370,7 +422,9 @@
             /////add in a side
             orderleftside.appendChild(orderitemimgtag);
             orderleftside.appendChild(orderItemname);
+            orderleftside.appendChild(ordersizespan); ////khanh edited
             orderleftside.appendChild(orderitempricespan);
+            //orderleftside.appendChild(orderitempricespan);
             //append child to LI
             orderitem.appendChild(orderleftside);
             orderitem.appendChild(deletebutton);
@@ -383,9 +437,13 @@
             ///console.log(orderidarray);
             enableCheckoutbutton();
         };
-
+        ////khanh edited
         function totalitems() {
-            document.getElementById('totalitem').innerText = orderitemarray.length;
+            let ttitem = 0;
+            for(let i = 0; i<arrquantity.length;i++){
+                ttitem += Number(arrquantity[i]);
+            }
+            document.getElementById('totalitem').innerText = ttitem;
         };
 
         function costitem() {
