@@ -27,14 +27,16 @@
                                     }
                                     
                                     .grid1 {
-                                        width: 1100px;
+                                        width: 1200px;
                                         max-width: 98%;
                                         margin: 0 auto;
                                     }
                                     
                                     .it {
-                                        width: 400px;
-                                        margin: 100px auto 0 auto;
+                                        width: 420px;
+                                        margin: 30px auto 20px 414px;
+                                        border-style: ridge;
+                                        border-radius: 10px;
                                     }
                                     
                                     .first {
@@ -46,10 +48,11 @@
                                     
                                     .second {
                                         background-image: linear-gradient(0, #FFFAFA, #FFFAFA);
-                                        height: 110px;
+                                        height: 113px;
                                         width: 400px;
                                         margin: 0 auto auto auto;
                                         border: none;
+                                        border-radius: 5px;
                                     }
                                     
                                     .third {
@@ -62,11 +65,12 @@
                                     
                                     .fourth {
                                         background-image: linear-gradient(0, #FFFAFA, #FFFAFA);
-                                        height: 70px;
+                                        height: 50px;
                                         width: 400px;
                                         margin: auto auto auto auto;
-                                        padding-top: 30px;
+                                        padding-top: 10px;
                                         padding-left: 270px;
+                                        border-radius: 10px;
                                     }
                                     
                                     .boxmail {
@@ -90,7 +94,7 @@
                                     }
                                     
                                     .component1 {
-                                        color: green;
+                                        color: #225486;
                                         font-size: large;
                                         text-align: left;
                                         padding-left: 10px;
@@ -100,7 +104,7 @@
                                     .component2 {
                                         text-align: right;
                                         font-size: large;
-                                        color: green;
+                                        color: #225486;
                                         padding-right: 10px;
                                         padding-top: 5px;
                                     }
@@ -108,14 +112,14 @@
                                     .component3 {
                                         text-align: left;
                                         font-size: small;
-                                        color: green;
+                                        color: #225486;
                                         padding-left: 10px;
                                         padding-top: 5px;
                                     }
                                     
                                     .component4 {
                                         text-align: right;
-                                        color: green;
+                                        color: #225486;
                                         font-size: small;
                                         padding-right: 10px;
                                         padding-top: 5px;
@@ -147,7 +151,8 @@
                                         background-color: white;
                                         height: auto;
                                         padding-left: 20px;
-                                        color: green;
+                                        color: #225486;
+                                        border-radius: 10px;
                                     }
                                     
                                     .div_left {
@@ -158,7 +163,8 @@
                                         background-color: white;
                                         margin: auto auto auto 30px;
                                         height: 50px;
-                                        color: green;
+                                        color: #225486;
+                                        border-radius: 10px;
                                     }
                                     
                                     .div_right {
@@ -169,61 +175,188 @@
                                         background-color: white;
                                         margin: auto 30px auto auto;
                                         height: 50px;
-                                        color: green;
+                                        color: #225486;
+                                        border-radius: 10px;
                                     }
                                     
                                     .inside_other {
-                                        margin: 90px 30px 20px 30px;
-                                        border: none;
-                                        height: 50px;
-                                        text-align: center;
-                                        padding-top: 10px;
-                                    }
-                                    
-                                    .goup {
-                                        border: none;
-                                    }
-                                    
-                                    .goup1 {
-                                        width: 140px;
+                                       margin: 90px 30px 20px 30px;
                                        border: none;
+                                       height: 50px;
+                                       text-align: center;
+                                       padding-top: 10px;
+                                       background-color: white;
+                                       color: #225486;
+                                       border-radius: 10px;
+                                       cursor: pointer;
+                                    }
+                                    
+                                   .inside_other:hover {
+                                      background: whitesmoke;
+                                    }
 
+                                   .goup {
+                                      border: none;
                                     }
-                                    
-                                    .j {
-                                        border: none;
-                                        background-color: #33CC66;
+
+                                   .goup1 {
+                                      width: 140px;
+                                      border: none;
                                     }
-                                    
-                                    .h {
-                                        border: none;
-                                        background-color: #33CC66;
-                                    }
-                                     .goup2 {
-                                       border: none;
-                                       width: 100px;
+
+                                  .j {
+                                     border: none;
+                                     background-color: #5C6FA2;
+                                     color: #225486;
+                                  }
+
+                                  .h {
+                                     border: none;
+                                     color: #225486;
+                                     background-image: linear-gradient(0, #FFFAFA, #FFFAFA);
+                                     margin-right: 50px;
+                                     margin-top: 0;
+                                     transition: .5s;
+                                     cursor: pointer;
                                    }
-#back{
-    color : black;
-    line-height: 7vh;
-}
-#black:hover{
-    text-decoration: none;
 
-}
-#cardname{
-    margin-left: 30px;
-    margin-bottom: 0;
-    font-size: 12px;
-}
-#inputCard{
-    border : none;
-    margin-bottom: 5px;
-}
-.app{
-    height: 100%;
-}
-html, body {
-    margin:0px;
-    height:100%;
-  }
+                                  .h:hover {
+                                     background: whitesmoke;
+                                     border-radius: 20px;
+                                  }
+
+                                  .goup2 {
+                                      border: none;
+                                      width: 100px;
+                                  }
+
+                                #back {
+                                      color: black;
+                                       line-height: 7vh;
+                                    }
+
+                                #black:hover {
+                                       text-decoration: none;
+                                  }
+
+                                #cardname {
+                                      margin-left: 30px;
+                                      margin-bottom: 0;
+                                      font-size: 12px;
+                                  }
+
+                                #inputCard {
+                                        border: none;
+                                        margin-bottom: 5px;
+                                 }
+
+                                .app {
+                                     height: 100%;
+                                 }
+
+                                html,
+                                body {
+                                    margin: 0px;
+                                    height: 100%;
+                                }
+
+                               .bg-modal {
+                                       width: 100%;
+                                       height: 100%;
+                                       background-color: rgba(0, 0, 0, 0.7);
+                                       display: flex;
+                                       justify-content: center;
+                                       position: absolute;
+                                       top: 0;
+                                       align-items: center;
+                                       display: none;
+                                 }
+
+                             .modal-content {
+                                       width: 400px;
+                                       height: 400px;
+                                       background-color: white;
+                                       border-radius: 10px;
+                                       text-align: center;
+                                       padding: 20px;
+                                       position: relative;
+                                       background-image: url(./media/dep.jpg);
+                                       background-repeat: no-repeat;
+                                       background-size: 100% 400px;
+                               }
+
+                           .close {
+                                  position: absolute;
+                                  top: 0;
+                                  right: 14px;
+                                  font-size: 42px;
+                                  cursor: pointer;
+                                  transform: rotate(45deg);
+                           }
+
+                         .header__navbar-item1 {
+                                padding-left: 40px;
+                                padding-top: 10px;
+                           }
+
+                         .line {
+                                bottom: 60px;
+                                width: 100%;
+                                height: 2px;
+                                background: black;
+                           }
+
+                        .df {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                        }
+
+                      .little {
+                           font-weight: bold;
+                        }
+
+                       .df2 {
+                           display: flex;
+                           flex-direction: row;
+                           justify-content: space-between;
+                        }
+
+                       .df3 {
+                           display: flex;
+                           flex-direction: row;
+                           justify-content: space-between;
+                        }
+
+                         .df4 {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                          }
+
+                         .df5 {
+                                 display: flex;
+                                 flex-direction: row;
+                                 justify-content: space-between;
+                                 margin-top: 0px;
+                          }
+
+                        .fa-check {
+                                 font-size: 40px;
+                                 color: #27ae60;
+                                 font-weight: bold;
+                                 height: 80;
+                                 width: 80;
+                                 border: 2px solid #27ae60;
+                                 text-align: center;
+                                 padding-top: 3px;
+                                 border-radius: 50%;
+                                 box-sizing: border-box;
+                                 margin: 5px 0 0 8px;
+                                 transition: .5s;
+                                 cursor: pointer;
+                         }
+
+                       .fa-check:hover {
+                                  background: #59ffac;
+                         }
