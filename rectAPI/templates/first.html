@@ -354,7 +354,6 @@
             //console.log(arrquantity);
             //console.log(orderpricearray);
             ///increase id 
-            id++;
             let orderlist = document.getElementById('orderlist');
             ////create the Li tag
             const orderitem = document.createElement('li');
@@ -364,7 +363,7 @@
                 ///add a text to LI 
             const orderItemname = document.createTextNode(' ' + itemname + "   ");
             /////khanh add
-            document.createTextNode(' $' + itemprice + "    Quantity: " + quantity);
+            ///document.createTextNode(' $' + itemprice + "    Quantity: " + quantity);
 
             const ordersizespan = document.createElement('span')
             var sizeS = document.getElementById("flexCheckDefaultS").checked;   
@@ -388,6 +387,7 @@
                 alert("You have not selected the size");
                 return;
             }
+            id++; console.log(id);
             orderpricearray.push(itemprice);
             arrquantity.push(quantity);
             const ordersize = document.createTextNode(size + '-');
@@ -430,6 +430,7 @@
             orderitem.appendChild(deletebutton);
             ///check
             orderlist.appendChild(orderitem);
+            console.log(id);
             ///image section
             ///add img text
             totalitems();
@@ -472,6 +473,7 @@
             orderidarray.length = 0;
             arrquantity.length = 0;
             id = 0;
+            console.log(id);
             totalitems();
             costitem();
             enableCheckoutbutton();
@@ -484,9 +486,9 @@
             orderpricearray.splice(indexnum, 1);
             orderimgarray.splice(indexnum, 1);
             arrquantity.splice(indexnum, 1);
+            orderlist.removeChild(button.parentElement);
             totalitems();
             costitem();
-            orderlist.removeChild(button.parentElement);
             if (orderpricearray.length === 0) {
                 document.getElementById('amount').value = 0;
                 enableCheckoutbutton();
@@ -496,7 +498,7 @@
         function enableCheckoutbutton() {
             const checkoutbutton = document.getElementById('checkoutbutton');
             checkoutbutton.disabled = true;
-            console.log(orderidarray.length);
+            ///console.log(orderidarray.length);
             if (orderidarray.length > 0) {
                 checkoutbutton.disabled = false;
             }
@@ -514,7 +516,7 @@
 
             firsttab.show();
         };
-          function passValues() {
+        function passValues() {
             var firstname = document.getElementById('amount').value;
             localStorage.setItem('textvalue', firstname);
               
