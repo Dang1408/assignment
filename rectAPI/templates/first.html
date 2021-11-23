@@ -60,10 +60,10 @@
 
                                     <div class="row g-3">
                                         <div class="col">
-                                        <input type="text" id="fname" name = "fname"class="rounded-pill form-contro form-control-lg" placeholder="First name" aria-label="First name">
+                                        <input type="text" id="fname" name = "fname"class="rounded-pill form-contro form-control-lg" placeholder="First name" aria-label="First name" id="fn">
                                         </div>
                                         <div class="col">
-                                        <input type="text" id="lname" name ="lname" class="rounded-pill form-contro form-control-lg" placeholder="Last name" aria-label="Last name">
+                                        <input type="text" id="lname" name ="lname" class="rounded-pill form-contro form-control-lg" placeholder="Last name" aria-label="Last name" id="ln">
                                         </div>
                                     </div>
                                 </div>
@@ -459,6 +459,19 @@
           function passValues() {
             var firstname = document.getElementById('amount').value;
             localStorage.setItem('textvalue', firstname);
+              
+            const finame = document.getElementById('fn').value;
+            localStorage.setItem('sm', finame);
+
+            const laname = document.getElementById('ln').value;
+            localStorage.setItem('me', laname);
+
+            const tph = document.getElementById('telephonenumber').value;
+            localStorage.setItem('tlp', tph);
+
+            const notes = document.getElementById('floatingTextarea2').value;
+            localStorage.setItem('nt', notes);
+
             return false;
         }
     </script>
