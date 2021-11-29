@@ -402,7 +402,7 @@
             orderpricearray.push(itemprice);
             arrquantity.push(quantity);
             ///
-            const orderprice = document.createTextNode('$' + itemprice + "    Quantity: " + quantity);
+            const orderprice = document.createTextNode('$' + itemprice.toFixed(2) + "    Quantity: " + quantity);
             ////
             orderitempricespan.className = 'text-danger';
             orderitempricespan.appendChild(orderprice);
